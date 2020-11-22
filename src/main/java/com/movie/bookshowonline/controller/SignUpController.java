@@ -7,26 +7,27 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.movie.bookshowonline.model.User;
-import com.movie.bookshowonline.service.SignInService;
+import com.movie.bookshowonline.service.SignUpService;
 
 @CrossOrigin
 @RestController
-public class RegisterUserController {
+public class SignUpController {
 
-	private static final Logger logger = LoggerFactory.getLogger(RegisterUserController.class);
+	private static final Logger logger = LoggerFactory.getLogger(SignUpController.class);
 
 	@Autowired
-	SignInService signInService;
+	SignUpService signUpService;
 
-	@PostMapping("/signin")
-	public String signIn(@RequestBody User user) {
+	@PostMapping("/signup")
+	public String signUp(@RequestBody User user) {
 
-		logger.info("Entered Controller ; UserId : {}", user.getFirstName());
+		logger.info("Entered SignUpController ; UserId : {}", user.getFirstName());
 
-		String message = signInService.signIn(user);
+		String message = signUpService.signUp(user);
 
-		logger.info("Exiting Controller ; UserId : {}", user.getFirstName());
+		logger.info("Exited SignUpController ; UserId : {}", user.getFirstName());
 
 		return message;
 
