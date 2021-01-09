@@ -12,6 +12,7 @@ import com.movie.bookshowonline.service.SignInService;
 
 @CrossOrigin
 @RestController
+//Sign In Controller
 public class SignInController {
 
 	private static final Logger logger = LoggerFactory.getLogger(SignInController.class);
